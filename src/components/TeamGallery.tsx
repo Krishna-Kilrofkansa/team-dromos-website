@@ -13,40 +13,48 @@ export default function TeamGallery() {
         const container = containerRef.current;
         if (!container) return;
 
-        const images = gsap.utils.toArray(".gallery-image");
-        
-        images.forEach((img: any, index) => {
-            gsap.fromTo(img, {
-                y: 100,
-                opacity: 0,
-                scale: 0.8
-            }, {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: img,
-                    start: "top 90%",
-                    end: "bottom 10%",
-                    scrub: 1,
-                    toggleActions: "play none none reverse"
-                }
-            });
+        // Select all the gallery image containers (these are HTML Elements, not strings)
+        const imageWrappers = gsap.utils.toArray<HTMLElement>(".gallery-image", container);
 
-            // Parallax effect
-            gsap.to(img, {
-                yPercent: -50,
+        // --- Animation 1: Staggered Fade-in on Scroll ---
+        // This is more efficient than creating a ScrollTrigger for each image.
+        gsap.fromTo(imageWrappers, {
+            y: 100,
+            opacity: 0,
+            scale: 0.8
+        }, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.2, // Animates each image 0.2s after the previous one
+            scrollTrigger: {
+                trigger: container, // Use the main container as the single trigger
+                start: "top 80%",   // Start when the container is 80% in view
+                toggleActions: "play none none none" // Play the animation once
+            }
+        });
+
+        // --- Animation 2: Parallax effect for each image ---
+        // This part needs to be individual as each image scrolls independently.
+        imageWrappers.forEach(wrapper => {
+            // Target the actual <img> tag inside the wrapper for the parallax effect
+            const imageEl = wrapper.querySelector('img');
+            if (!imageEl) return;
+
+            gsap.to(imageEl, {
+                yPercent: -20, // A smaller value is often less jarring for parallax
                 ease: "none",
                 scrollTrigger: {
-                    trigger: img,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
+                    trigger: wrapper,
+                    start: "top bottom", // Starts when the top of the wrapper hits the bottom of the screen
+                    end: "bottom top",   // Ends when the bottom of the wrapper hits the top of the screen
+                    scrub: true          // Smoothly links the animation to the scrollbar
                 }
             });
         });
+        
     }, []);
 
     const galleryImages = [
@@ -59,20 +67,22 @@ export default function TeamGallery() {
     ];
 
     return (
-        <section className="py-20 bg-background-secondary/20">
+        <section id="gallery" className="py-32 bg-gradient-to-b from-background to-background-secondary/40">
             <div className="container mx-auto px-6">
-                <h2 className="text-h1 font-orbitron font-bold text-center mb-16 text-primary">Team Gallery</h2>
+                <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-center mb-16 text-transparent bg-gradient-to-r from-primary via-accent-neon to-primary bg-clip-text">
+                    Team Gallery
+                </h2>
                 <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {galleryImages.map((src, index) => (
-                        <div key={index} className="gallery-image relative overflow-hidden rounded-lg group">
+                        <div key={index} className="gallery-image relative overflow-hidden rounded-2xl shadow-glass group">
                             <Image
                                 src={src}
-                                alt={`Team ${index + 1}`}
-                                width={400}
-                                height={300}
-                                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                                alt={`Team gallery image ${index + 1}`}
+                                width={500}
+                                height={400}
+                                className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
                     ))}
                 </div>

@@ -270,7 +270,7 @@ export default function Landing() {
 
                     <div className="container mx-auto px-6 text-center relative z-10">
                         <div className="hero-title font-orbitron text-4xl md:text-6xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-primary via-accent-neon to-primary bg-clip-text text-transparent leading-tight">
-                            We're more than just a team —<br />we're a <span className="relative inline-block">
+                            {"We're more than just a team —"}<br />{"we're a" }<span className="relative inline-block">
                                 movement
                                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent-neon/20 blur-lg animate-pulse"></div>
                             </span>.
@@ -449,7 +449,7 @@ export default function Landing() {
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-8">
                             <p className="text-xl md:text-2xl font-orbitron text-transparent bg-gradient-to-r from-primary via-accent-neon to-primary bg-clip-text mb-6 animate-text-glow">
-                                "The name is DROMOS. Driven by purpose, powered by passion."
+                                {'"The name is DROMOS. Driven by purpose, powered by passion."'}
                             </p>
                         </div>
                         <div className="flex justify-center space-x-8 mb-8">
