@@ -4,7 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Zap, Flame, Cog, Brain, Megaphone, Wrench } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import CustomCursor from "./CustomCursor";
 import ParticleBackground from "./ParticleBackground";
 import HorizontalLoop from "./HorizontalLoop";
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Landing() {
     const mainRef = useRef(null);
-    const cursorRef = useRef<HTMLDivElement>(null);
+
 
     useEffect(() => {
         // Full screen image reveal effect
@@ -102,7 +102,7 @@ export default function Landing() {
             });
 
             // Scroll-triggered animations
-            gsap.utils.toArray(".reveal-section").forEach((section: any) => {
+            gsap.utils.toArray<HTMLElement>(".reveal-section").forEach((section) => {
                 gsap.fromTo(section.children, {
                     y: 100,
                     opacity: 0
@@ -121,7 +121,7 @@ export default function Landing() {
             });
 
             // Subsystem cards animation
-            gsap.utils.toArray(".subsystem-card").forEach((card: any, index) => {
+            gsap.utils.toArray<HTMLElement>(".subsystem-card").forEach((card, index) => {
                 gsap.fromTo(card, {
                     x: index % 2 === 0 ? -100 : 100,
                     opacity: 0,
@@ -141,7 +141,7 @@ export default function Landing() {
             });
 
             // Achievement cards stacking animation
-            gsap.utils.toArray(".achievement-card").forEach((card: any, index) => {
+            gsap.utils.toArray<HTMLElement>(".achievement-card").forEach((card, index) => {
                 gsap.fromTo(card, {
                     y: 100 + (index * 20),
                     opacity: 0,
@@ -391,7 +391,7 @@ export default function Landing() {
                         <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-center mb-4 text-transparent bg-gradient-to-r from-primary via-accent-neon to-primary bg-clip-text">🔥 Subsystems</h2>
                         <p className="text-center text-text-secondary/80 mb-16 max-w-2xl mx-auto text-lg">Each subsystem represents precision engineering and innovation working in perfect harmony</p>
                         <div className="grid lg:grid-cols-2 gap-8">
-                            {subsystems.map((subsystem, index) => {
+                            {subsystems.map((subsystem) => {
                                 const IconComponent = subsystem.icon;
                                 return (
                                     <div key={index} className="subsystem-card group relative p-8 bg-gradient-to-br from-background-secondary/60 to-background/40 backdrop-blur-md border border-primary/30 rounded-2xl hover:border-primary/60 transition-all duration-500 hover:shadow-glow-cyan hover:-translate-y-2 overflow-hidden">
