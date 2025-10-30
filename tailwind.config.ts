@@ -2,44 +2,79 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
     content: [
-        './pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './components/**/*.{js,ts,jsx,tsx,mdx}',
-        './app/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
         extend: {
             colors: {
-                base: '#0F0F0F',
+                background: {
+                    DEFAULT: '#0a0a0a',
+                    secondary: '#1a1a1a',
+                    tertiary: '#2a2a2a'
+                },
+                primary: {
+                    DEFAULT: '#00AEEF',
+                    dark: '#0088cc',
+                    light: '#33c1f0'
+                },
                 accent: {
-                    1: '#00E0FF', // Cyan
-                    2: '#FF008C', // Pink
+                    cyan: '#00AEEF',
+                    silver: '#B0BEC5',
+                    neon: '#00ffff'
                 },
-                neutral: {
-                    light: '#F5F5F5',
-                    dark: '#CCCCCC',
-                },
+                text: {
+                    primary: '#ffffff',
+                    secondary: '#B0BEC5',
+                    muted: '#6b7280'
+                }
+            },
+            fontFamily: {
+                'space': ['Space Grotesk', 'sans-serif'],
+                'orbitron': ['Orbitron', 'monospace'],
+                'inter': ['Inter', 'sans-serif']
             },
             fontSize: {
-                'h6': '1.25rem',
-                'h5': '1.5625rem',
-                'h4': '1.95rem',
-                'h3': '2.441rem',
-                'h2': '3.052rem',
-                'h1': '3.815rem',
+                'hero': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                'display': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+                'h1': ['2.5rem', { lineHeight: '1.3' }],
+                'h2': ['2rem', { lineHeight: '1.4' }],
+                'h3': ['1.5rem', { lineHeight: '1.5' }]
             },
-            spacing: {
-                '8': '8px',
-                '16': '16px',
-                '24': '24px',
-                '32': '32px',
-                '64': '64px',
-                '128': '128px',
-                '256': '256px',
+            animation: {
+                'glow': 'glow 2s ease-in-out infinite alternate',
+                'float': 'float 3s ease-in-out infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'fade-in': 'fadeIn 0.6s ease-out'
+            },
+            keyframes: {
+                glow: {
+                    '0%': { boxShadow: '0 0 20px rgba(0, 174, 239, 0.3)' },
+                    '100%': { boxShadow: '0 0 30px rgba(0, 174, 239, 0.6)' }
+                },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0px)' },
+                    '50%': { transform: 'translateY(-10px)' }
+                },
+                slideUp: {
+                    '0%': { transform: 'translateY(100%)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' }
+                },
+                fadeIn: {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' }
+                }
+            },
+            backdropBlur: {
+                xs: '2px'
             },
             boxShadow: {
-                'glow-cyan': '0 0 15px 5px rgba(0, 224, 255, 0.3)',
-                'glow-pink': '0 0 15px 5px rgba(255, 0, 140, 0.3)',
-            },
+                'glow-cyan': '0 0 20px rgba(0, 174, 239, 0.4)',
+                'glow-neon': '0 0 20px rgba(0, 255, 255, 0.4)',
+                'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+            }
         },
     },
     plugins: [],
