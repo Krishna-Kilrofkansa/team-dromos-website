@@ -355,7 +355,7 @@ export default function Landing() {
                         
                         <div className="grid md:grid-cols-3 gap-8 mb-16">
                             {achievements.map((achievement, index) => (
-                                <div key={index} className="achievement-card group relative p-8 bg-gradient-to-br from-background/70 to-background-secondary/50 backdrop-blur-md border border-primary/30 rounded-2xl text-center hover:border-primary/60 transition-all duration-500 hover:shadow-glow-cyan hover:-translate-y-3 overflow-hidden">
+                                <div key={`achievement-${index}`} className="achievement-card group relative p-8 bg-gradient-to-br from-background/70 to-background-secondary/50 backdrop-blur-md border border-primary/30 rounded-2xl text-center hover:border-primary/60 transition-all duration-500 hover:shadow-glow-cyan hover:-translate-y-3 overflow-hidden">
                                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent-neon transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                                     <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{achievement.icon}</div>
                                     <h3 className="text-2xl font-space font-bold mb-3 text-primary group-hover:text-accent-neon transition-colors duration-300">{achievement.title}</h3>

@@ -13,8 +13,8 @@ export default function IconGrid() {
         const handleMouseMove = (e: MouseEvent) => {
             const icons = container.querySelectorAll('.floating-grid-icon');
             
-            icons.forEach((icon: any, index) => {
-                const rect = icon.getBoundingClientRect();
+            icons.forEach((icon: Element) => {
+                const rect = (icon as HTMLElement).getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
                 
