@@ -1,4 +1,4 @@
-"use client";
+
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Zap, Target, Globe, Users, Lightbulb, Award } from "lucide-react";

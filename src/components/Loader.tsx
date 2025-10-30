@@ -1,5 +1,4 @@
-"use client";
-import Image from "next/image";
+
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import styles from "./Loader.module.css"; // we’ll modularize styles
@@ -81,23 +80,17 @@ export default function Loader() {
         <>
             <div className={styles.loader}>
                 <div className={styles.stageWhite}>
-                    <Image
+                    <img
                         src="/dromos-black.jpg"
                         alt="Dromos Logo Black"
-                        width={300}    // fallback size (overridden by CSS)
-                        height={250}
                         className={styles.logo}
-                        priority
                     />
                 </div>
                 <div className={styles.stageBlack}>
-                    <Image
+                    <img
                         src="/dromos-white.jpg"
                         alt="Dromos Logo White"
-                        width={300}
-                        height={250}
                         className={styles.logo}
-                        priority
                     />
                 </div>
 

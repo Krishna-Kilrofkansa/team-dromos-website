@@ -1,6 +1,4 @@
-"use client";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Zap, Flame, Cog, Brain, Megaphone, Wrench } from "lucide-react";
@@ -326,12 +324,10 @@ export default function Landing() {
                                 </div>
                             </div>
                             <div className="relative">
-                                <Image
+                                <img
                                     src="/hyperloop.png"
                                     alt="Hyperloop Pod"
-                                    width={600}
-                                    height={400}
-                                    className="rounded-lg shadow-glass"
+                                    className="rounded-lg shadow-glass w-full max-w-[600px] h-auto"
                                 />
                             </div>
                         </div>

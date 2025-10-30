@@ -1,4 +1,4 @@
-"use client";
+
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Home, Users, Cog, Award, Mail, Info } from "lucide-react";

@@ -1,8 +1,6 @@
-"use client";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,11 +73,9 @@ export default function TeamGallery() {
                 <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {galleryImages.map((src, index) => (
                         <div key={index} className="gallery-image relative overflow-hidden rounded-2xl shadow-glass group">
-                            <Image
+                            <img
                                 src={src}
                                 alt={`Team gallery image ${index + 1}`}
-                                width={500}
-                                height={400}
                                 className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

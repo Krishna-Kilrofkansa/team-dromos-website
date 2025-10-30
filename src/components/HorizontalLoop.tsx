@@ -1,7 +1,5 @@
-"use client";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Image from "next/image";
 
 interface HorizontalLoopProps {
     images: string[];
@@ -39,11 +37,9 @@ export default function HorizontalLoop({ images }: HorizontalLoopProps) {
             <div className="flex absolute inset-0">
                 {images.map((src, index) => (
                     <div key={index} className="loop-item flex-shrink-0 w-80 h-full mx-4">
-                        <Image
+                        <img
                             src={src}
                             alt={`Gallery ${index + 1}`}
-                            width={320}
-                            height={256}
                             className="w-full h-full object-cover rounded-lg"
                         />
                     </div>
