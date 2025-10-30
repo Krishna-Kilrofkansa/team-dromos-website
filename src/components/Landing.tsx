@@ -391,7 +391,7 @@ export default function Landing() {
                         <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-center mb-4 text-transparent bg-gradient-to-r from-primary via-accent-neon to-primary bg-clip-text">🔥 Subsystems</h2>
                         <p className="text-center text-text-secondary/80 mb-16 max-w-2xl mx-auto text-lg">Each subsystem represents precision engineering and innovation working in perfect harmony</p>
                         <div className="grid lg:grid-cols-2 gap-8">
-                            {subsystems.map((subsystem) => {
+                            {subsystems.map((subsystem, index) => {
                                 const IconComponent = subsystem.icon;
                                 return (
                                     <div key={index} className="subsystem-card group relative p-8 bg-gradient-to-br from-background-secondary/60 to-background/40 backdrop-blur-md border border-primary/30 rounded-2xl hover:border-primary/60 transition-all duration-500 hover:shadow-glow-cyan hover:-translate-y-2 overflow-hidden">
