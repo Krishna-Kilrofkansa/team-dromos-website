@@ -43,7 +43,7 @@ export default function Footer() {
         <footer ref={containerRef} className="relative bg-black pt-20 pb-10 px-6 overflow-hidden border-t border-white/10">
 
             {/* Big Title */}
-            <div className="mb-20 overflow-hidden">
+            <div className="mb-20 overflow-hidden text-center">
                 <h1
                     ref={titleRef}
                     className="text-[12vw] leading-none font-black text-center text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10 uppercase tracking-tighter"
@@ -56,7 +56,7 @@ export default function Footer() {
 
                 {/* FIND US */}
                 <div className="space-y-4">
-                    <h3 className="text-white font-bold mb-6">Find Us</h3>
+                    <h3 className="text-white font-bold mb-6">Contact Us</h3>
                     <p>
                         VIT Chennai Campus,<br />
                         Vandalur, Kelambakkam Road,<br />
@@ -64,11 +64,13 @@ export default function Footer() {
                     </p>
                     <div className="pt-4">
                         <p className="text-white font-bold">Team Captain</p>
-                        <p>+91 98765 43210</p>
+                        <p>Aditya Shekawat</p>
+                        <p>+91 63774 19498</p>
                     </div>
                     <div>
                         <p className="text-white font-bold">General Manager</p>
-                        <p>+91 98765 43210</p>
+                        <p>Chinmay Pradeep</p>
+                        <p>+91 77750 36464</p>
                     </div>
                     <a href="mailto:contact@teamdromos.com" className="block text-primary hover:underline pt-2">
                         contact@teamdromos.com
@@ -79,7 +81,7 @@ export default function Footer() {
                 <div className="space-y-4">
                     <h3 className="text-white font-bold mb-6">Links</h3>
                     <ul className="space-y-2">
-                        <li><a href="#" className="hover:text-primary transition-colors">Instagram</a></li>
+                        <li><a href="https://www.instagram.com/teamdromos/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a></li>
                         <li><a href="#" className="hover:text-primary transition-colors">YouTube</a></li>
                         <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
                         <li><a href="#" className="hover:text-primary transition-colors">LinkedIn</a></li>
