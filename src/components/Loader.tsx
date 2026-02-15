@@ -7,12 +7,11 @@ export default function Loader() {
     useEffect(() => {
         // Prevent scrolling during loader
         document.body.style.overflow = "hidden";
-        
+
         // initial states
         gsap.set(`.${styles.bar}`, { scaleX: 1, transformOrigin: "center" });
         gsap.set(`.${styles.stageWhite}`, { autoAlpha: 1 });
         gsap.set(`.${styles.stageBlack}`, { autoAlpha: 0 });
-        gsap.set(`.${styles.content}`, { autoAlpha: 0 });
 
         const tl = gsap.timeline({ paused: true, defaults: { ease: "power4.inOut" } });
 
@@ -67,46 +66,33 @@ export default function Loader() {
             },
         });
 
-        tl.to(
-            `.${styles.content}`,
-            { autoAlpha: 1, duration: 0.9, ease: "power2.out" },
-            "-=0.3"
-        );
-
         setTimeout(() => tl.play(), 2000);
     }, []);
 
     return (
-        <>
-            <div className={styles.loader}>
-                <div className={styles.stageWhite}>
-                    <img
-                        src="/dromos-black.jpg"
-                        alt="Dromos Logo Black"
-                        className={styles.logo}
-                    />
-                </div>
-                <div className={styles.stageBlack}>
-                    <img
-                        src="/dromos-white.jpg"
-                        alt="Dromos Logo White"
-                        className={styles.logo}
-                    />
-                </div>
-
-                <div className={styles.bar}></div>
-                <div className={styles.bar}></div>
-                <div className={styles.bar}></div>
-
-                <div className={styles.loadingText}>
-                    Initialising DROMOS Hyperloop frameworks…
-                </div>
+        <div className={styles.loader}>
+            <div className={styles.stageWhite}>
+                <img
+                    src="/dromos-black.jpg"
+                    alt="Dromos Logo Black"
+                    className={styles.logo}
+                />
+            </div>
+            <div className={styles.stageBlack}>
+                <img
+                    src="/dromos-white.jpg"
+                    alt="Dromos Logo White"
+                    className={styles.logo}
+                />
             </div>
 
-            <div className={styles.content}>
-                <h1>Welcome to DROMOS Landing Page</h1>
-                <p>Your page content here.</p>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+
+            <div className={styles.loadingText}>
+                Initialising DROMOS Hyperloop frameworks…
             </div>
-        </>
+        </div>
     );
 }

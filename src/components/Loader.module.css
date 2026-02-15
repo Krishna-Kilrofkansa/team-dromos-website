@@ -42,9 +42,12 @@ body {
     transform: scaleX(1);
     transform-origin: center;
 }
+
 .logo {
-    width: clamp(16rem, 35vw, 48rem); /* min: 12rem (~192px), max: 24rem (~384px) */
-    height: auto;                     /* keep aspect ratio */
+    width: clamp(16rem, 35vw, 48rem);
+    /* min: 12rem (~192px), max: 24rem (~384px) */
+    height: auto;
+    /* keep aspect ratio */
     object-fit: contain;
     display: block;
     margin: 0 auto;
@@ -65,18 +68,14 @@ body {
     0% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.6;
         transform: translateX(1px);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
     }
-}
-
-.content {
-    opacity: 0;
-    padding: 50px;
-    text-align: center;
 }
