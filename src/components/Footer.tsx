@@ -40,7 +40,7 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer ref={containerRef} className="relative bg-black pt-20 pb-10 px-6 overflow-hidden border-t border-white/10">
+        <footer id="contact" ref={containerRef} className="relative bg-black pt-20 pb-10 px-6 overflow-hidden border-t border-white/10">
 
             {/* Big Title */}
             <div className="mb-20 overflow-hidden text-center">
@@ -72,7 +72,7 @@ export default function Footer() {
                         <p>Chinmay Pradeep</p>
                         <p>+91 77750 36464</p>
                     </div>
-                    <a href="mailto:contact@teamdromos.com" className="block text-primary hover:underline pt-2">
+                    <a href="mailto:contact@teamdromos.com" className="block text-white hover:underline pt-2">
                         contact@teamdromos.com
                     </a>
                 </div>
@@ -81,10 +81,10 @@ export default function Footer() {
                 <div className="space-y-4">
                     <h3 className="text-white font-bold mb-6">Links</h3>
                     <ul className="space-y-2">
-                        <li><a href="https://www.instagram.com/teamdromos/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a></li>
-                        <li><a href="#" className="hover:text-primary transition-colors">YouTube</a></li>
-                        <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
-                        <li><a href="#" className="hover:text-primary transition-colors">LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/teamdromos/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">YouTube</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
                     </ul>
                 </div>
 
@@ -93,7 +93,7 @@ export default function Footer() {
                     <h3 className="text-white font-bold mb-6">Local Time</h3>
                     <p className="text-2xl font-mono text-white">{time}</p>
                     <div className="text-[100px] leading-none opacity-20 font-black">
-                        N<span className="text-primary">S</span>
+                        N<span className="text-white/40">S</span>
                     </div>
                 </div>
 

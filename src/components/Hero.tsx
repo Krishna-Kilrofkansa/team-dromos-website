@@ -45,21 +45,21 @@ export default function Hero() {
         <section id="home" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-background z-0">
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]" />
+                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] animate-pulse" />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div ref={textRef} className="perspective-text">
                     <div className="overflow-hidden mb-2">
-                        <h2 className="hero-text text-primary font-bold tracking-[0.2em] uppercase text-sm md:text-base">
+                        <h2 className="hero-text text-white/60 font-bold tracking-[0.2em] uppercase text-sm md:text-base">
                             The Future of Transportation
                         </h2>
                     </div>
                     <div className="overflow-hidden mb-4">
                         <h1 className="hero-text text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9]">
                             TEAM <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-purple-500">
+                            <span className="text-white/80">
                                 DROMOS
                             </span>
                         </h1>
@@ -70,10 +70,16 @@ export default function Hero() {
                         </p>
                     </div>
                     <div className="hero-text flex gap-4">
-                        <button className="bg-primary text-black font-bold py-4 px-8 rounded-full hover:bg-white transition-all duration-300 hover:scale-105">
+                        <button
+                            onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+                            className="bg-white text-black font-bold py-4 px-8 rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105"
+                        >
                             Explore Our Tech
                         </button>
-                        <button className="border border-white/20 text-white font-bold py-4 px-8 rounded-full hover:bg-white/10 transition-all duration-300">
+                        <button
+                            onClick={() => document.getElementById("team")?.scrollIntoView({ behavior: "smooth" })}
+                            className="border border-white/20 text-white font-bold py-4 px-8 rounded-full hover:bg-white/10 transition-all duration-300"
+                        >
                             Meet the Team
                         </button>
                     </div>
@@ -84,7 +90,7 @@ export default function Hero() {
                         ref={imageRef}
                         src="/hyperloop.png"
                         alt="Hyperloop Pod"
-                        className="w-full max-w-[800px] object-contain drop-shadow-[0_0_50px_rgba(0,174,239,0.3)]"
+                        className="w-full max-w-[800px] object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.1)]"
                     />
                 </div>
             </div>

@@ -7,7 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import Achievements from "./components/Achievements";
+import JoinUs from "./components/JoinUs";
 import Team from "./components/Team";
 import ContactDrawer from "./components/ContactDrawer";
 import Footer from "./components/Footer";
@@ -45,7 +47,9 @@ function App() {
       <Navbar />
       <ContactDrawer />
       <Hero />
+      <About />
       <Achievements />
+      <JoinUs />
       <Team />
 
       <Footer />

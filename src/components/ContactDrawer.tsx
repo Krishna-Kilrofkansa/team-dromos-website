@@ -38,7 +38,7 @@ export default function ContactDrawer() {
             {/* Visual Trigger - Contact Icon */}
             {!isOpen && (
                 <div
-                    className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-primary p-3 rounded-l-xl cursor-pointer hover:pr-4 transition-all duration-300 shadow-lg shadow-primary/20"
+                    className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-white p-3 rounded-l-xl cursor-pointer hover:pr-4 transition-all duration-300 shadow-lg shadow-white/20"
                     onMouseEnter={handleMouseEnter}
                 >
                     <Mail className="w-6 h-6 text-black" />
@@ -65,44 +65,44 @@ export default function ContactDrawer() {
 
                 <form ref={formRef} className="space-y-6 flex-1 text-white">
                     <div className="space-y-2">
-                        <label htmlFor="name" className="text-sm font-medium text-primary uppercase tracking-wider">
+                        <label htmlFor="name" className="text-sm font-medium text-white/60 uppercase tracking-wider">
                             Name
                         </label>
                         <input
                             type="text"
                             id="name"
-                            className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-primary transition-colors hover:bg-white/10"
+                            className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-white/50 transition-colors hover:bg-white/10"
                             placeholder="Your Name"
                         />
                     </div>
 
                     <div className="space-y-2">
-                        <label htmlFor="email" className="text-sm font-medium text-primary uppercase tracking-wider">
+                        <label htmlFor="email" className="text-sm font-medium text-white/60 uppercase tracking-wider">
                             Email
                         </label>
                         <input
                             type="email"
                             id="email"
-                            className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-primary transition-colors hover:bg-white/10"
+                            className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-white/50 transition-colors hover:bg-white/10"
                             placeholder="your@email.com"
                         />
                     </div>
 
                     <div className="space-y-2">
-                        <label htmlFor="message" className="text-sm font-medium text-primary uppercase tracking-wider">
+                        <label htmlFor="message" className="text-sm font-medium text-white/60 uppercase tracking-wider">
                             Message
                         </label>
                         <textarea
                             id="message"
                             rows={5}
-                            className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-primary transition-colors hover:bg-white/10 resize-none"
+                            className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-white/50 transition-colors hover:bg-white/10 resize-none"
                             placeholder="How can we help you?"
                         />
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full bg-primary text-black font-bold py-4 rounded-lg hover:bg-white transition-all duration-300 transform hover:scale-[1.02]"
+                        className="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-[1.02]"
                     >
                         Send Message
                     </button>
@@ -111,13 +111,13 @@ export default function ContactDrawer() {
                 {/* Social Links & Close Hint */}
                 <div className="mt-8 flex flex-col items-center gap-4">
                     <div className="flex gap-6">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors transform hover:scale-110">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors transform hover:scale-110">
                             <Linkedin className="w-6 h-6" />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors transform hover:scale-110">
+                        <a href="https://www.instagram.com/teamdromos/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors transform hover:scale-110">
                             <Instagram className="w-6 h-6" />
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors transform hover:scale-110">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors transform hover:scale-110">
                             <Twitter className="w-6 h-6" />
                         </a>
                     </div>

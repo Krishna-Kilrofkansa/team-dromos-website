@@ -48,7 +48,7 @@ export default function Team() {
     const renderCard = (member: typeof TEAM_MEMBERS[0]) => (
         <div
             key={member.id}
-            className="team-card group relative bg-neutral-900 rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 w-[250px] md:w-[300px] flex-shrink-0 aspect-[3/4]"
+            className="team-card group relative bg-neutral-900 rounded-xl overflow-hidden border border-white/5 hover:border-white/30 transition-all duration-300 w-[250px] md:w-[300px] flex-shrink-0 aspect-[3/4]"
         >
             <img
                 src={member.image}
@@ -63,7 +63,7 @@ export default function Team() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
 
             <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <h4 className="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">
+                <h4 className="text-lg font-bold text-white mb-1 transition-colors">
                     {member.name}
                 </h4>
                 <p className="text-gray-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
@@ -75,12 +75,12 @@ export default function Team() {
 
     return (
         <section id="team" ref={containerRef} className="py-20 bg-background relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,174,239,0.1)_0%,rgba(0,0,0,0)_70%)] opacity-50 pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0)_70%)] opacity-50 pointer-events-none" />
 
             <div className="container mx-auto px-6 mb-12 text-center">
-                <h2 className="text-primary font-bold tracking-[0.2em] uppercase mb-4">Our People</h2>
+                <h2 className="text-white/60 font-bold tracking-[0.2em] uppercase mb-4">Our People</h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-white">Meet the Team</h3>
-                <div className="w-20 h-1 bg-primary mx-auto mt-6 rounded-full" />
+                <div className="w-20 h-1 bg-white mx-auto mt-6 rounded-full" />
             </div>
 
             {/* Marquee Wrapper */}
