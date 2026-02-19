@@ -82,9 +82,7 @@ export default function Footer() {
                     <h3 className="text-white font-bold mb-6">Links</h3>
                     <ul className="space-y-2">
                         <li><a href="https://www.instagram.com/teamdromos/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">YouTube</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="https://www.linkedin.com/company/team-dromos/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
                     </ul>
                 </div>
 

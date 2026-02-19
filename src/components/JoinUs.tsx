@@ -29,7 +29,10 @@ export default function JoinUs() {
                         <p className="text-xl text-gray-400 leading-relaxed max-w-lg">
                             We offer the ride of a lifetime — a space to grow, fail, learn, and lead. Be part of something bigger than yourself.
                         </p>
-                        <button className="group mt-8 flex items-center gap-4 bg-white text-black font-bold py-4 px-8 rounded-full hover:bg-gray-200 transition-all duration-300">
+                        <button
+                            onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
+                            className="group mt-8 flex items-center gap-4 bg-white text-black font-bold py-4 px-8 rounded-full hover:bg-gray-200 transition-all duration-300"
+                        >
                             Apply Now
                             <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                         </button>

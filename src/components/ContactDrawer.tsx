@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { cn } from "../lib/utils";
-import { Mail, Linkedin, Instagram, Twitter, CheckCircle } from "lucide-react";
+import { Mail, Linkedin, Instagram, CheckCircle } from "lucide-react";
 
 export default function ContactDrawer() {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +29,13 @@ export default function ContactDrawer() {
             });
         }
     }, [isOpen]);
+
+    // Listen for custom event from "Apply Now" button
+    useEffect(() => {
+        const openDrawer = () => setIsOpen(true);
+        window.addEventListener("open-contact", openDrawer);
+        return () => window.removeEventListener("open-contact", openDrawer);
+    }, []);
 
     const handleMouseEnter = () => setIsOpen(true);
     const handleMouseLeave = () => setIsOpen(false);
@@ -96,7 +103,7 @@ export default function ContactDrawer() {
                     className="space-y-6 flex-1 text-white"
                 >
                     {/* Web3Forms access key */}
-                    <input type="hidden" name="access_key" value="45f0f6b1-b998-467c-a427-51e9050e79c1" />
+                    <input type="hidden" name="access_key" value="0cd7e286-3e59-4ae7-bdb5-25b230c78c1a" />
                     <input type="hidden" name="subject" value="New Contact from Team Dromos Website" />
                     <input type="hidden" name="from_name" value="Team Dromos Website" />
 
@@ -168,14 +175,11 @@ export default function ContactDrawer() {
                 {/* Social Links & Close Hint */}
                 <div className="mt-8 flex flex-col items-center gap-4">
                     <div className="flex gap-6">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors transform hover:scale-110">
+                        <a href="https://www.linkedin.com/company/team-dromos/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors transform hover:scale-110">
                             <Linkedin className="w-6 h-6" />
                         </a>
                         <a href="https://www.instagram.com/teamdromos/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors transform hover:scale-110">
                             <Instagram className="w-6 h-6" />
-                        </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors transform hover:scale-110">
-                            <Twitter className="w-6 h-6" />
                         </a>
                     </div>
                     <div className="text-gray-500 text-sm">
