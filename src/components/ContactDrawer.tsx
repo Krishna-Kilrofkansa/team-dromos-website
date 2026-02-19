@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { cn } from "../lib/utils";
-import { Mail, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Mail, Linkedin, Instagram, Twitter, CheckCircle } from "lucide-react";
 
 export default function ContactDrawer() {
     const [isOpen, setIsOpen] = useState(false);
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
     const drawerRef = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
@@ -29,9 +30,35 @@ export default function ContactDrawer() {
         }
     }, [isOpen]);
 
-    // Handle recursive mouse enter/leave logic to avoid flickering
     const handleMouseEnter = () => setIsOpen(true);
     const handleMouseLeave = () => setIsOpen(false);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        const formData = new FormData(e.currentTarget);
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                setStatus("success");
+                formRef.current?.reset();
+                setTimeout(() => setStatus("idle"), 4000);
+            } else {
+                setStatus("error");
+                setTimeout(() => setStatus("idle"), 3000);
+            }
+        } catch {
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 3000);
+        }
+    };
 
     return (
         <>
@@ -63,7 +90,16 @@ export default function ContactDrawer() {
                     </p>
                 </div>
 
-                <form ref={formRef} className="space-y-6 flex-1 text-white">
+                <form
+                    ref={formRef}
+                    onSubmit={handleSubmit}
+                    className="space-y-6 flex-1 text-white"
+                >
+                    {/* Web3Forms access key */}
+                    <input type="hidden" name="access_key" value="45f0f6b1-b998-467c-a427-51e9050e79c1" />
+                    <input type="hidden" name="subject" value="New Contact from Team Dromos Website" />
+                    <input type="hidden" name="from_name" value="Team Dromos Website" />
+
                     <div className="space-y-2">
                         <label htmlFor="name" className="text-sm font-medium text-white/60 uppercase tracking-wider">
                             Name
@@ -71,6 +107,8 @@ export default function ContactDrawer() {
                         <input
                             type="text"
                             id="name"
+                            name="name"
+                            required
                             className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-white/50 transition-colors hover:bg-white/10"
                             placeholder="Your Name"
                         />
@@ -83,6 +121,8 @@ export default function ContactDrawer() {
                         <input
                             type="email"
                             id="email"
+                            name="email"
+                            required
                             className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-white/50 transition-colors hover:bg-white/10"
                             placeholder="your@email.com"
                         />
@@ -94,7 +134,9 @@ export default function ContactDrawer() {
                         </label>
                         <textarea
                             id="message"
+                            name="message"
                             rows={5}
+                            required
                             className="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-white/50 transition-colors hover:bg-white/10 resize-none"
                             placeholder="How can we help you?"
                         />
@@ -102,9 +144,24 @@ export default function ContactDrawer() {
 
                     <button
                         type="submit"
-                        className="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-[1.02]"
+                        disabled={status === "sending"}
+                        className={cn(
+                            "w-full font-bold py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02]",
+                            status === "success"
+                                ? "bg-green-500 text-white"
+                                : status === "error"
+                                    ? "bg-red-500 text-white"
+                                    : "bg-white text-black hover:bg-gray-200"
+                        )}
                     >
-                        Send Message
+                        {status === "sending" && "Sending..."}
+                        {status === "success" && (
+                            <span className="flex items-center justify-center gap-2">
+                                <CheckCircle className="w-5 h-5" /> Sent Successfully!
+                            </span>
+                        )}
+                        {status === "error" && "Something went wrong. Try again."}
+                        {status === "idle" && "Send Message"}
                     </button>
                 </form>
 
