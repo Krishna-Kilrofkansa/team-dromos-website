@@ -11,7 +11,7 @@ const MEMBER_IDS = [
 
 const TEAM_MEMBERS = MEMBER_IDS.map((id) => ({
     id,
-    name: `Member ${id}`,
+    //name: `Member ${id}`,
     role: "Engineer",
     image: `/images/${id}.jpg`
 }));
