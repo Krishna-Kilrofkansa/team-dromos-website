@@ -52,7 +52,7 @@ export default function Team() {
         >
             <img
                 src={member.image}
-                alt={member.name}
+                //alt={member.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
                 loading="lazy"
                 onError={(e) => {
@@ -63,9 +63,9 @@ export default function Team() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
 
             <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <h4 className="text-lg font-bold text-white mb-1 transition-colors">
-                    {member.name}
-                </h4>
+                //<h4 className="text-lg font-bold text-white mb-1 transition-colors">
+                //    {member.name}
+                //</h4>
                 <p className="text-gray-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                     {member.role}
                 </p>
